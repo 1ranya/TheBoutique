@@ -45,8 +45,6 @@ export const Arts = styled.div`
 ${flexRow}
 flex-wrap: wrap;
 justify-content: space-between;
-
-padding-top: 20px;
 `;
 
 export const ArtDescription = styled.div`
