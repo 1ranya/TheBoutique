@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { TEXT_COLOR, BG_COLOR } from "./constants";
+import { BsBookmarkHeart } from "react-icons/bs";
 
 export const flex = css`
 display: flex;
@@ -43,9 +44,24 @@ ${flexRow}
 flex-wrap: wrap;
 justify-content: space-between;
 
-padding-top: 35px;
+padding-top: 20px;
 `;
 
 export const ArtDescription = styled.div`
+${flexRow};
+justify-content: space-between;
+align-items: end;
 padding: 5px 0px 25px 0;
+font-size: 13px;
 `; 
+
+export const DescriptionContent = styled.span`
+${flexRow}
+gap: 5px
+`;
+
+export const BsBookmarkHeartCustom = styled(BsBookmarkHeart)`
+&:hover {
+    cursor: pointer;
+}
+`;

@@ -10,18 +10,18 @@ import { Arts } from '../App.style'
 
 export default function Gallery() {
     const arts = [
-        {"src": manSideLook, desc: 'Side look'}, 
-        {"src": womanChild, desc: 'Cuteness'}, 
-        {"src": womanInnocence, desc: 'Innocence'}, 
-        {"src": womanLookDown, desc: "Shyness"}, 
-        {"src": womanStrongLook, desc: "Strong look"}, 
+        {"src": manSideLook, desc: 'Side look', price: '20€'}, 
+        {"src": womanChild, desc: 'Cuteness', price: '20€'}, 
+        {"src": womanInnocence, desc: 'Innocence', price: '20€'}, 
+        {"src": womanLookDown, desc: "Shyness", price: '20€'}, 
+        {"src": womanStrongLook, desc: "Strong look", price: '20€'}, 
     ]
     return (
         <ContainerGallery>
-            <Title> ART WORKS </Title>
+            <Title> {arts.length} ART WORKS </Title>
             <Arts>
                 { arts.map(art => (
-                    <Art src={art.src} description={art.desc}/>
+                    <Art src={art.src} description={art.desc} price={art.price}/>
                 ))}
             </Arts>
         </ContainerGallery>
