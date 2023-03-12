@@ -28,6 +28,8 @@ export const HeaderContainer = styled.div`
 export const LogoContainer = styled.img`
 width: 100px;
 height: 100px;
+
+margin: -25px 0 20px -35px;
 `;
 
 export const ArtContainer = styled.div`

@@ -8,7 +8,7 @@ export default function Art({ src, description, price }) {
         <ImageContainer src={src}></ImageContainer>
         <ArtDescription> 
           <DescriptionContent><b>{description}</b></DescriptionContent>
-          <BsBookmarkHeartCustom/>
+          {/* <BsBookmarkHeartCustom/> */}
         </ArtDescription>
     </ArtContainer>
   )
