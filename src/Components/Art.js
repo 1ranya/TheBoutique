@@ -1,15 +1,16 @@
 import React from 'react'
-import { ArtContainer, ArtDescription, ImageContainer, DescriptionContent } from '../App.style'
+import { ArtContainer, ArtDescription, ImageContainer, DescriptionContent, Status } from '../App.style'
 
-export default function Art({ src, description, price }) {
+export default function Art({ src, description, price, status }) {
   console.log('src ', src)
   return (
     <ArtContainer>
-        <ImageContainer src={src}></ImageContainer>
-        <ArtDescription> 
-          <DescriptionContent><b>{description}</b></DescriptionContent>
-          {/* <BsBookmarkHeartCustom/> */}
-        </ArtDescription>
+      {status && (<Status status={status}> {status} </Status>)}
+      <ImageContainer src={src}></ImageContainer>
+      <ArtDescription> 
+        <DescriptionContent><b>{description}</b></DescriptionContent>
+        {/* <BsBookmarkHeartCustom/> */}
+      </ArtDescription>
     </ArtContainer>
   )
 }

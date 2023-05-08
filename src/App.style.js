@@ -29,10 +29,11 @@ export const LogoContainer = styled.img`
 width: 100px;
 height: 100px;
 
-margin: -25px 0 20px -35px;
+margin: -25px 0 20px -31px;
 `;
 
 export const ArtContainer = styled.div`
+position: relative;
 ${flexCol}
 width: calc(50% - 5px);
 `;
@@ -64,4 +65,19 @@ export const BsBookmarkHeartCustom = styled(BsBookmarkHeart)`
 &:hover {
     cursor: pointer;
 }
+`;
+
+export const Status = styled.div`
+position: absolute;
+right: 10px;
+top: 10px;
+
+font-weight: 600;
+text-align: center;
+border: 2px solid ${props => props.status === 'Sold Out' ? "red" : "green" };
+border-radius: 5px;
+padding: 2px 6px 3px 6px;
+
+color: ${props => props.status === 'Sold Out' ? "red" : "green" };
+background-color: transparent;
 `;

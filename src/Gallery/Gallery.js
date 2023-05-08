@@ -5,25 +5,37 @@ import womanChild from '../Statics/Portraits/woman_child.jpg'
 import womanInnocence from '../Statics/Portraits/woman_innocence.jpg'
 import womanLookDown from '../Statics/Portraits/woman_look_down.jpg'
 import womanStrongLook from '../Statics/Portraits/woman_strong_look.jpg'
+import tunisia from '../Statics/Portraits/discover_tunisia.jpg'
 import Art from '../Components/Art'
 import { Arts } from '../App.style'
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 export default function Gallery() {
     const [ openBlackAndWhiteSection, setOpenBlackAndWhiteSection] = useState(true)
-    // const [ openOthersSection, setOpenOthersSection] = useState(true)
+    const [ openOthersSection, setOpenOthersSection] = useState(true)
     
     const arts = [
-        {"src": manSideLook, desc: 'Side look', price: '20€'}, 
-        {"src": womanChild, desc: 'Cuteness', price: '20€'}, 
-        {"src": womanInnocence, desc: 'Innocence', price: '20€'}, 
-        {"src": womanLookDown, desc: "Shyness", price: '20€'}, 
-        {"src": womanStrongLook, desc: "Strong look", price: '20€'}, 
+        {"src": manSideLook, desc: 'Side look', price: 0, status: 'forGalleryOnly', type: "isBlackAndWhite"}, 
+        {"src": womanChild, desc: 'Cuteness', price: 0, status: 'forGalleryOnly', type: "isBlackAndWhite"}, 
+        {"src": womanInnocence, desc: 'Innocence', price: 0, status: 'forGalleryOnly', type: "isBlackAndWhite"}, 
+        {"src": womanLookDown, desc: "Shyness", price: 0, status: 'forGalleryOnly', type: "isBlackAndWhite"}, 
+        {"src": womanStrongLook, desc: "Strong look", price: 0, status: 'forGalleryOnly', type: "isBlackAndWhite"}, 
+        {"src": tunisia, desc: "Discover Tunisia", price: 0, status: 'Sold Out', type: "other"}, 
     ]
+
+    const ArtComponent = (props) => {
+        const {art} = props
+        return <Art 
+                src={art.src} 
+                description={art.desc} 
+                price={art.price === 0 ? '' : art.price}
+                status={art.status === 'forGalleryOnly' ? '' : art.status }
+                />
+    }
+    
     return (
         <ContainerGallery>
             <Title> {arts.length} ART WORKS </Title>
-
             <Subtitle onClick={
                 () => setOpenBlackAndWhiteSection(!openBlackAndWhiteSection)
             }> Black and white 
@@ -33,12 +45,10 @@ export default function Gallery() {
                 }</Subtitle>
             {openBlackAndWhiteSection 
                 && <Arts>
-                    { arts.map(art => (
-                        <Art src={art.src} description={art.desc} price={art.price}/>
-                    ))}
+                    { arts.map(art => art.type === 'isBlackAndWhite' && <ArtComponent art={art}/>)}
                     </Arts>
             }
-            {/* <Subtitle onClick={
+            <Subtitle onClick={
                 () => setOpenOthersSection(!openOthersSection)
             }> Others 
                 { openOthersSection 
@@ -47,11 +57,9 @@ export default function Gallery() {
                 }</Subtitle>
             {openOthersSection &&
                 <Arts>
-                    { arts.map(art => (
-                        <Art src={art.src} description={art.desc} price={art.price}/>
-                    ))}
+                    { arts.map(art => art.type === 'other' && <ArtComponent art={art}/>)}
                 </Arts>
-            } */}
+            }
         </ContainerGallery>
     )
 }
