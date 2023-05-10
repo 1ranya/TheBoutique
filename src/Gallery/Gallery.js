@@ -25,10 +25,10 @@ export default function Gallery() {
         {"src": womanLookDown, desc: "Shyness", price: 0, status: 'forGalleryOnly', type: "isBlackAndWhite"}, 
         {"src": womanStrongLook, desc: "Strong look", price: 0, status: 'forGalleryOnly', type: "isBlackAndWhite"}, 
         {"src": tunisia, desc: "Discover Tunisia", price: 0, status: 'Sold Out', type: "other"}, 
-        {"src": orangeFace, desc: "The Sun", price: 0, status: 'available', type: "other"}, 
-        {"src": oliveOil, desc: "Olive oil", price: 0, status: 'available', type: "other"}, 
-        {"src": breakfast, desc: "Yummy breakfast", price: 0, status: 'available', type: "other"}, 
-        {"src": leaf, desc: "The Leaf", price: 0, status: 'available', type: "other"}, 
+        {"src": orangeFace, desc: "The Sun behind her look", price: 0, status: 'Available', type: "other"}, 
+        {"src": oliveOil, desc: "The shiny olive oil ", price: 0, status: 'Available', type: "other"}, 
+        {"src": breakfast, desc: "The ideal breakfast", price: 0, status: 'Available', type: "other"}, 
+        {"src": leaf, desc: "The centered leaf", price: 0, status: 'Available', type: "other"}, 
     ]
 
     const ArtComponent = (props) => {
@@ -45,20 +45,8 @@ export default function Gallery() {
         <ContainerGallery>
             <Title> {arts.length} ART WORKS </Title>
             <Subtitle onClick={
-                () => setOpenBlackAndWhiteSection(!openBlackAndWhiteSection)
-            }> Black and white 
-                { openBlackAndWhiteSection 
-                    ?<IoIosArrowDown/> 
-                    :<IoIosArrowUp/>
-                }</Subtitle>
-            {openBlackAndWhiteSection 
-                && <Arts>
-                    { arts.map(art => art.type === 'isBlackAndWhite' && <ArtComponent art={art}/>)}
-                    </Arts>
-            }
-            <Subtitle onClick={
                 () => setOpenOthersSection(!openOthersSection)
-            }> Others 
+            }> Paintings 
                 { openOthersSection 
                     ?<IoIosArrowDown/> 
                     :<IoIosArrowUp/>
@@ -67,6 +55,19 @@ export default function Gallery() {
                 <Arts>
                     { arts.map(art => art.type === 'other' && <ArtComponent art={art}/>)}
                 </Arts>
+            }
+            <Subtitle onClick={
+                () => setOpenBlackAndWhiteSection(!openBlackAndWhiteSection)
+            }> Pencil drawings
+                { openBlackAndWhiteSection 
+                    ?<IoIosArrowDown/> 
+                    :<IoIosArrowUp/>
+                }
+            </Subtitle>
+            {openBlackAndWhiteSection 
+                && <Arts>
+                    { arts.map(art => art.type === 'isBlackAndWhite' && <ArtComponent art={art}/>)}
+                    </Arts>
             }
         </ContainerGallery>
     )

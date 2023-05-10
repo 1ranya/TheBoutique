@@ -74,10 +74,10 @@ top: 10px;
 
 font-weight: 600;
 text-align: center;
-border: 2px solid ${props => props.status === 'Sold Out' ? "red" : "green" };
+border: 2px solid ${props => props.status === 'Sold Out' ? "red" : "#013201" };
 border-radius: 5px;
 padding: 2px 6px 3px 6px;
 
-color: ${props => props.status === 'Sold Out' ? "red" : "green" };
+color: ${props => props.status === 'Sold Out' ? "red" : "#013201" };
 background-color: transparent;
 `;
